@@ -51,6 +51,7 @@ void productMatrixVector(Matrix A, Vector v, Vector &R){
     }
 }
 
+//modificada tambien para guardar en un valor la operacion y hacer mas facil el proceso (para mi)
 void productRealMatrix(float real,Matrix M,Matrix &R){
     zeroes(R,M.size());
     for(int i=0;i<M.size();i++){
@@ -154,8 +155,8 @@ void inverseM(Matrix M, Matrix &Minv){
         exit(EXIT_FAILURE);
     }
 
-    Matrix cofM, cofMT;
+    Matrix cofM, cofMTrans;
     cofactors(M, cofM);
-    transpose(cofM, cofMT);
-    productRealMatrix(1.0/determinant(M), cofMT, Minv);
+    transpose(cofM, cofMTrans);
+    productRealMatrix(1.0/determinant(M), cofMTrans, Minv);
 }
